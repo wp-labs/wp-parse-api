@@ -1,0 +1,25 @@
+[package]
+name = "wp-parse-api"
+version = "0.7.0"
+edition = "2024"
+license = "Elastic-2.0"
+readme = "README.md"
+description = "Minimal plugin API for wp-lang data pipelines and parser components"
+repository = "https://github.com/wp-labs/wp-parse-api"
+homepage = "https://github.com/wp-labs/wp-parse-api"
+documentation = "https://docs.rs/wp-parse-api"
+keywords = ["parser", "pipeline", "plugin", "data-model"]
+categories = ["parser-implementations", "data-structures"]
+
+[lib]
+name = "wp_parse_api"
+
+[dependencies]
+bytes = "1"
+wp-model-core = "0.7"
+thiserror = "2.0"
+orion-error= "0.5"
+derive_more = "2.1"
+
+serde_derive = "1.0"
+serde = "1.0"
