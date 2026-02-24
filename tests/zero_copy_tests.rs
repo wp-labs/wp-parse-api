@@ -1,6 +1,6 @@
 use bytes::Bytes;
 use std::sync::Arc;
-use wp_parse_api::RawData;
+use wp_model_core::raw::RawData;
 
 #[test]
 fn test_arc_bytes_creation() {
