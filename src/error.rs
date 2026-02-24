@@ -57,7 +57,9 @@ pub type WparseError = StructError<WparseReason>;
 
 impl From<DataErrKind> for WparseError {
     fn from(value: DataErrKind) -> Self {
-        WparseReason::from_data().to_err().with_detail(format!("{}", value))
+        WparseReason::from_data()
+            .to_err()
+            .with_detail(format!("{}", value))
     }
 }
 pub type WparseResult<T> = Result<T, WparseError>;
