@@ -30,7 +30,7 @@ use derive_more::From;
 use orion_error::ErrorCode;
 use orion_error::StructError;
 use orion_error::ToStructError;
-use orion_error::UvsDataFrom;
+use orion_error::UvsFrom;
 use orion_error::UvsReason;
 
 #[derive(Error, Debug, Clone, PartialEq, Serialize, From)]
@@ -57,7 +57,7 @@ pub type WparseError = StructError<WparseReason>;
 
 impl From<DataErrKind> for WparseError {
     fn from(value: DataErrKind) -> Self {
-        WparseReason::from_data(format!("{}", value), None).to_err()
+        WparseReason::from_data().to_err().with_detail(format!("{}", value))
     }
 }
 pub type WparseResult<T> = Result<T, WparseError>;
