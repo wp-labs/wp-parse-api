@@ -18,7 +18,7 @@ name = "wp_parse_api"
 bytes = "1"
 wp-model-core = "0.8"
 thiserror = "2.0"
-orion-error = { version = "0.6", features = ["serde"] }
+orion-error = { version = "0.7", features = ["serde"] }
 derive_more = "2.1"
 
 serde_derive = "1.0"

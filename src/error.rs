@@ -27,33 +27,23 @@ impl From<String> for DataErrKind {
 }
 
 use derive_more::From;
-use orion_error::ErrorCode;
-use orion_error::StructError;
-use orion_error::ToStructError;
-use orion_error::UvsFrom;
-use orion_error::UvsReason;
+use orion_error::conversion::ToStructError;
+use orion_error::{OrionError, StructError, UvsFrom, UvsReason};
 
-#[derive(Error, Debug, Clone, PartialEq, Serialize, From)]
+#[derive(Debug, Clone, PartialEq, Serialize, From, OrionError)]
 pub enum WparseReason {
+    #[orion_error(identity = "biz.plugin")]
     #[from(skip)]
-    #[error("plugin >{0}")]
     Plugin(String),
-    #[error("not match")]
+    #[orion_error(identity = "biz.not_match", message = "not match")]
     NotMatch,
-    #[error("line proc > {0}")]
+    #[orion_error(identity = "biz.line_proc")]
     LineProc(String),
-    #[error("{0}")]
+    #[orion_error(transparent)]
     Uvs(UvsReason),
-}
-impl ErrorCode for WparseReason {
-    fn error_code(&self) -> i32 {
-        500
-    }
 }
 
 pub type WparseError = StructError<WparseReason>;
-
-//universal_owe!(ParseEngineError, ParseOweUniversal);
 
 impl From<DataErrKind> for WparseError {
     fn from(value: DataErrKind) -> Self {
