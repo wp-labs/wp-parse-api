@@ -28,7 +28,7 @@ impl From<String> for DataErrKind {
 
 use derive_more::From;
 use orion_error::conversion::ToStructError;
-use orion_error::{OrionError, StructError, UvsFrom, UvsReason};
+use orion_error::{OrionError, StructError, UnifiedReason};
 
 #[derive(Debug, Clone, PartialEq, Serialize, From, OrionError)]
 pub enum WparseReason {
@@ -40,14 +40,14 @@ pub enum WparseReason {
     #[orion_error(identity = "biz.line_proc")]
     LineProc(String),
     #[orion_error(transparent)]
-    Uvs(UvsReason),
+    Uvs(UnifiedReason),
 }
 
 pub type WparseError = StructError<WparseReason>;
 
 impl From<DataErrKind> for WparseError {
     fn from(value: DataErrKind) -> Self {
-        WparseReason::from_data()
+        WparseReason::data_error()
             .to_err()
             .with_detail(format!("{}", value))
     }
