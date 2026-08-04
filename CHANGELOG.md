@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.11.0] - 2026-08-04
+
+### ⚠️ BREAKING CHANGES
+
+- 依赖 `wp-model-core` 0.8 → 0.9（上游新增 `Value::BigUint` / `DataType::BigInt` 变体）
+
+### Dependencies
+
+- `wp-model-core`：`0.8` → `0.9`
+
 ## [0.10.0] - 2026-05-03
 
 ### Changed
@@ -25,6 +35,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fix `ToStructError` import path for orion-error 0.7.2
 - Bump orion-error dependency from 0.6 to 0.7
 
-[Unreleased]: https://github.com/wp-labs/wp-parse-api/compare/v0.10.0...HEAD
+[Unreleased]: https://github.com/wp-labs/wp-parse-api/compare/v0.11.0...HEAD
+[0.11.0]: https://github.com/wp-labs/wp-parse-api/compare/v0.10.0...v0.11.0
 [0.10.0]: https://github.com/wp-labs/wp-parse-api/releases/tag/v0.10.0
 [0.9.0]: https://github.com/wp-labs/wp-parse-api/releases/tag/v0.9.0
