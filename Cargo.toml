@@ -1,6 +1,6 @@
 [package]
 name = "wp-parse-api"
-version = "0.12.0"
+version = "0.13.0"
 edition = "2024"
 license = "Apache-2.0"
 readme = "README.md"
@@ -18,7 +18,7 @@ name = "wp_parse_api"
 bytes = "1"
 wp-model-core = "0.10"
 thiserror = "2.0"
-orion-error = { version = "0.8", features = ["serde"] }
+orion-error = { version = "0.9", features = ["serde"] }
 derive_more = { version = "2.1", features = ["from"] }
 
 serde_derive = "1.0"
